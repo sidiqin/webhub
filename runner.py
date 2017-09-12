@@ -17,28 +17,10 @@ def errors(error):
 def main():
 	return template('index.html')
 
-@route("/Leaderboards")
-def Leaderboards():
-	return template('Leaderboards.html')
+@route("/leaderboards")
+def leaderboards():
+	return template('leaderboards.html')
 
-@route("/Statistics")
-def Statistics():
-	return template('Statistics.html')
-
-
-@route("/Heroes")
-def Heroes():
-	return template('Heroes.html')
-
-
-@route("/Guides")
-def Guides():
-	return template('Guides.html')
-
-
-@route("/About")
-def About():
-	return template('About.html')
 
 
 @route('/favicon.ico')
@@ -52,14 +34,10 @@ def serve_robots():
 
 # specifying the path for the files
 @route('/<filepath:path>')
-@route('/Leaderboards/<filepath:path>')
-@route('/Statistics/<filepath:path>')
-@route('/Heroes/<filepath:path>')
-@route('/Guides/<filepath:path>')
-@route('/About/<filepath:path>')
+# @route('/leaderboards/<filepath:path>')
 def server_static(filepath):
 	return static_file(filepath, root='./static/')
 
 if __name__ == '__main__':
-	application.run(host='0.0.0.0', port=8080, debug=True, reloader=True,)
+	application.run(reloader=True, host="0.0.0.0", port=int(os.environ.get("PORT", 9090)))
 	
