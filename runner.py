@@ -21,6 +21,18 @@ def main():
 def leaderboards():
 	return template('leaderboards.html')
 
+@route("/heroes")
+def heroes():
+	return template('heroes.html')
+
+@route("/items")
+def items():
+	return template('items.html')
+
+@route("/about")
+def about():
+	return template('about.html')
+
 
 
 @route('/favicon.ico')
@@ -34,7 +46,6 @@ def serve_robots():
 
 # specifying the path for the files
 @route('/<filepath:path>')
-# @route('/leaderboards/<filepath:path>')
 def server_static(filepath):
 	return static_file(filepath, root='./static/')
 
