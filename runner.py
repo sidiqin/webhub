@@ -2,9 +2,6 @@ from bottle import *
 import bottle
 import os
 
-
-# db = MongoClient("mongodb://db_username:db_pwd@db_ip:db_port").db_name
-
 application = default_app()
 
 @error(500)
@@ -29,15 +26,15 @@ def heroes():
 def items():
 	return template('items.html')
 
-@route("/about")
-def about():
-	return template('about.html')
+@route("/contact me")
+def contact_me():
+	return template('contact me.html')
 
 
 
 @route('/favicon.ico')
 def get_favicon():
-	return server_static('favicon.ico')
+	return server_static('dota.ico')
 
 
 @route('/robots.txt')
